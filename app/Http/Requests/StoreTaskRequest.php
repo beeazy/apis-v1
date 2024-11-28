@@ -8,10 +8,11 @@ class StoreTaskRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     * set to true because no auth is required at the moment
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,11 @@ class StoreTaskRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            // request body
+
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'is_completed' => 'required|boolean'
         ];
     }
 }
