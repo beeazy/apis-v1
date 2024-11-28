@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Priorities;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,6 +23,7 @@ class TaskFactory extends Factory
             'name' => fake()->sentence(),
             'description' => fake()->paragraph(),
             'is_completed' => rand(0, 1),
+            'priority_id' => rand(0,1) === 0 ? NULL : Priorities::pluck('id')->random(),
         ];
     }
 }

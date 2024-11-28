@@ -19,7 +19,10 @@ class TaskController extends Controller
 
         // return Task::all();
 
-        return TaskResource::collection(Task::all());
+        // return TaskResource::collection(Task::all());
+
+
+        return TaskResource::collection(Task::with('priority')->get());
     }
 
     /**

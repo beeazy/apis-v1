@@ -27,7 +27,15 @@ class StoreTaskRequest extends FormRequest
 
             'name' => 'required|string|max:255',
             'description' => 'required|string',
-            'is_completed' => 'boolean'
+            'is_completed' => 'boolean',
+            'priority_id' => 'integer|exists:priorities,id'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'priority_id' => 'priority'
         ];
     }
 }
